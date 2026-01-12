@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m pytest:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(.venv/bin/python:*)",
+      "Bash(.venv/bin/pip:*)",
+      "Bash(.venv/bin/ytt:*)",
+      "Bash(.venv/bin/black:*)",
+      "Bash(.venv/bin/ruff:*)",
+      "Bash(tree:*)",
+      "Bash(git checkout:*)",
+      "Bash(pytest:*)",
+      "Bash(python -m youtube_transcript.cli fetch:*)",
+      "Bash(python:*)",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(pip show:*)",
+      "Bash(cat:*)",
+      "Bash(timeout:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+<!-- Loading Spinner -->
+<div class="loading-indicator">
+    <div class="spinner"></div>
+    <p>Fetching transcript...</p>
+</div>
+
+<style>
+.loading-indicator {
+    text-align: center;
+    padding: 2rem;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff0000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-indicator p {
+    color: #666;
+    font-size: 1rem;
+}
+</style>

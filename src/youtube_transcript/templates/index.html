@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}Home - YouTube Transcript Fetcher{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Get YouTube Video Transcripts</h1>
+    <p class="subtitle">Fetch transcripts from any YouTube video in seconds</p>
+</div>
+
+<div class="transcript-form">
+    <form
+        hx-get="/htmx/transcript"
+        hx-target="#transcript-result"
+        hx-swap="innerHTML"
+        hx-indicator="#loading-indicator"
+        class="form-container"
+    >
+        <div class="form-group">
+            <label for="url">YouTube Video URL</label>
+            <input
+                type="url"
+                id="url"
+                name="url"
+                placeholder="https://www.youtube.com/watch?v=..."
+                required
+                autofocus
+            >
+            <small class="help-text">
+                Supports: youtube.com, youtu.be, shorts, live streams, and more
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="languages">Language Preference (Optional)</label>
+            <select id="languages" name="languages">
+                <option value="">Any Language</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="it">Italian</option>
+                <option value="pt">Portuguese</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="zh">Chinese</option>
+            </select>
+            <small class="help-text">
+                Select your preferred language for the transcript
+            </small>
+        </div>
+
+        <button type="submit" class="btn">
+            Fetch Transcript
+        </button>
+    </form>
+</div>
+
+<!-- Loading Indicator (hidden by default, shown by HTMX) -->
+<div id="loading-indicator" class="htmx-indicator" style="display: none;">
+    <div class="spinner"></div>
+    <p>Fetching transcript...</p>
+</div>
+
+<!-- Result Container (HTMX swaps content here) -->
+<div id="transcript-result"></div>
+
+<div class="features">
+    <div class="feature-card">
+        <h3>⚡ Fast</h3>
+        <p>Get transcripts in milliseconds with smart caching</p>
+    </div>
+    <div class="feature-card">
+        <h3>🌍 Multi-Language</h3>
+        <p>Support for 100+ languages and auto-translation</p>
+    </div>
+    <div class="feature-card">
+        <h3>📱 Simple</h3>
+        <p>Just paste the URL and get your transcript</p>
+    </div>
+</div>
+
+<style>
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.transcript-form {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.help-text {
+    display: block;
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.htmx-indicator {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff0000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.htmx-indicator p {
+    color: #666;
+    font-size: 1rem;
+}
+
+#transcript-result {
+    margin-top: 2rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

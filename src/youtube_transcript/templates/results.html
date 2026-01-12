@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Transcript - {{ transcript.video_id }}{% endblock %}
+
+{% block content %}
+<div class="transcript-page">
+    <div class="page-header">
+        <a href="/" class="btn btn-secondary">← Back to Home</a>
+        <h1>Transcript Results</h1>
+    </div>
+
+    {% if error %}
+    <div class="alert alert-error">
+        <strong>Error:</strong> {{ error }}
+    </div>
+    {% else %}
+
+    <div class="transcript-container">
+        <div class="transcript-header">
+            <h2>Video: {{ transcript.video_id }}</h2>
+            <div class="transcript-meta">
+                <span><strong>Language:</strong> {{ transcript.language }}</span>
+                <span><strong>Type:</strong> {{ transcript.transcript_type|title }}</span>
+            </div>
+        </div>
+
+        <div class="transcript-content">
+            <h3>Transcript</h3>
+            <div class="transcript-text">{{ transcript.transcript }}</div>
+        </div>
+
+        <div class="transcript-actions">
+            <button onclick="copyTranscript()" class="btn">Copy Transcript</button>
+            <button onclick="downloadTranscript()" class="btn btn-secondary">Download as Text</button>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+function copyTranscript() {
+    const text = document.querySelector('.transcript-text').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Transcript copied to clipboard!');
+    }).catch(err => {
+        alert('Failed to copy: ' + err);
+    });
+}
+
+function downloadTranscript() {
+    const text = document.querySelector('.transcript-text').textContent;
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = '{{ transcript.video_id }}-transcript.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
+
+<style>
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    margin-top: 1rem;
+}
+
+.transcript-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.transcript-actions {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #eee;
+    display: flex;
+    gap: 1rem;
+}
+
+.transcript-content {
+    margin-top: 1.5rem;
+}
+
+.transcript-content h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+</style>
+{% endblock %}

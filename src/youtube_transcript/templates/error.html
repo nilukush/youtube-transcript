@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Error - YouTube Transcript Fetcher{% endblock %}
+
+{% block content %}
+<div class="error-page">
+    <div class="error-container">
+        <div class="error-icon">⚠️</div>
+        <h1>{{ error_title or "An Error Occurred" }}</h1>
+        <p class="error-message">{{ error_message or "Something went wrong. Please try again." }}</p>
+
+        {% if error_details %}
+        <div class="error-details">
+            <strong>Details:</strong>
+            <p>{{ error_details }}</p>
+        </div>
+        {% endif %}
+
+        <div class="error-actions">
+            <a href="/" class="btn">Back to Home</a>
+            {% if back_url %}
+            <a href="{{ back_url }}" class="btn btn-secondary">Go Back</a>
+            {% endif %}
+        </div>
+
+        {% if show_help %}
+        <div class="error-help">
+            <h3>Common Issues:</h3>
+            <ul>
+                <li><strong>Invalid URL:</strong> Make sure you're using a valid YouTube URL</li>
+                <li><strong>No Transcript:</strong> Not all videos have transcripts available</li>
+                <li><strong>Private Video:</strong> Private videos cannot be accessed</li>
+                <li><strong>Region Restricted:</strong> Some videos are restricted in certain regions</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+.error-page {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.error-container {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.error-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.error-container h1 {
+    color: #c33;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.error-details {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.error-details p {
+    margin-top: 0.5rem;
+    color: #666;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.error-help {
+    margin-top: 3rem;
+    text-align: left;
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.error-help h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.error-help ul {
+    list-style-position: inside;
+    color: #666;
+}
+
+.error-help li {
+    margin-bottom: 0.5rem;
+}
+
+.error-help strong {
+    color: #333;
+}
+</style>
+{% endblock %}

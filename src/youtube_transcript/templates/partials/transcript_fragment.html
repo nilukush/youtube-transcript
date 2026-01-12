@@ -1,0 +1,44 @@
+<!-- Transcript Fragment for HTMX -->
+<div class="transcript-container htmx-response">
+    <div class="transcript-header">
+        <h2>Video: {{ transcript.video_id }}</h2>
+        <div class="transcript-meta">
+            <span><strong>Language:</strong> {{ transcript.language }}</span>
+            <span><strong>Type:</strong> {{ transcript.transcript_type|title }}</span>
+        </div>
+    </div>
+
+    <div class="transcript-content">
+        <h3>Transcript</h3>
+        <div class="transcript-text">{{ transcript.transcript }}</div>
+    </div>
+
+    <div class="transcript-actions">
+        <button onclick="copyTranscript()" class="btn">Copy Transcript</button>
+        <button onclick="downloadTranscript()" class="btn btn-secondary">Download as Text</button>
+    </div>
+</div>
+
+<script>
+function copyTranscript() {
+    const text = document.querySelector('.transcript-text').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Transcript copied to clipboard!');
+    }).catch(err => {
+        alert('Failed to copy: ' + err);
+    });
+}
+
+function downloadTranscript() {
+    const text = document.querySelector('.transcript-text').textContent;
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = '{{ transcript.video_id }}-transcript.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
