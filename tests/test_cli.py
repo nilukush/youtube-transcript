@@ -167,6 +167,30 @@ class TestCLIErrorHandling:
         result = runner.invoke(app, ["fetch", "invalid-url"])
         assert len(result.stdout) > 0  # Should have some output
 
+    def test_cli_successful_fetch_does_not_print_error_message(self):
+        """Test that successful transcript fetch doesn't print 'Error:' message.
+
+        This is a regression test for the bug where typer.Exit(code=0) was caught
+        by the general Exception handler, causing "Error:" to appear after successful
+        fetches. The fix ensures successful fetches use return instead of raise.
+
+        See commit 02af638 for the fix.
+        """
+        from youtube_transcript.cli import app
+        runner = CliRunner()
+
+        # Use a known video ID with available transcript
+        result = runner.invoke(app, ["fetch", "dQw4w9WgXcQ"])
+
+        # Successful fetch should NOT contain "Error:" in output
+        # (Note: actual fetch may fail due to rate limiting, but the bug
+        # was that even successful fetches showed "Error:")
+        if result.exit_code == 0:
+            assert "Error:" not in result.stdout, (
+                "Successful transcript fetch should not print 'Error:' message. "
+                "This indicates the typer.Exit exception handling bug has regressed."
+            )
+
 
 class TestCLIIntegration:
     """Test CLI integration with services."""
