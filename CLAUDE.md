@@ -9,7 +9,6 @@
 | **Users** | [README.md](README.md) | Features, installation, usage examples |
 | **Operators** | [DEPLOYMENT.md](DEPLOYMENT.md) | Deployment, configuration, monitoring |
 | **Contributors** | [CLAUDE.md](CLAUDE.md) | This file - architecture reference |
-| **Historical** | [docs/archive/ARCHIVE.md](docs/archive/ARCHIVE.md) | Development history & implementation docs |
 
 ---
 
@@ -132,8 +131,6 @@ youtube-transcript/
 │   ├── utils/            # URL parsing utilities
 │   └── cli.py            # CLI entry point (Typer)
 ├── tests/                # 280 tests, 74% coverage
-├── docs/
-│   └── archive/          # Development history (archived Jan 12, 2026)
 ├── DEPLOYMENT.md         # Deployment guide (app owners)
 ├── README.md             # User documentation
 ├── CLAUDE.md             # This file (contributor reference)
@@ -156,7 +153,8 @@ youtube-transcript/
 ## Recent Updates
 
 ### January 2026
-- **Documentation cleanup** (Jan 12): Archived development docs, compacted CLAUDE.md
+- **Repository cleanup** (Jan 12): Removed development history archive, rely on git history
+- **Documentation streamlining** (Jan 12): Compacted CLAUDE.md, removed redundancy
 - **CLI --version flag fixed** (Commit f47f047): `is_eager=True` callback
 - **Language help clarified** (Commit 211eb75): Priority order behavior documented
 - **Production deployment** (Jan 11): Live on Render with WebShare proxies
@@ -177,7 +175,7 @@ youtube-transcript/
 - [x] Deploy to Render
 - [x] Fix CLI error handling bug
 - [x] Fix --version flag
-- [x] Documentation cleanup and archival
+- [x] Documentation streamlining and repository cleanup
 
 ### In Progress 🚧
 - [ ] Redis caching (reduce API calls by 80%+)
@@ -241,6 +239,6 @@ REDIS_URL=redis://...        # Optional: for caching
 - Platform: Render Free Tier | Auto-deploys from main
 - Start: `uvicorn youtube_transcript.api.app:create_app --host 0.0.0.0 --port $PORT`
 
-**Historical Documentation**: Archived to [docs/archive/ARCHIVE.md](docs/archive/ARCHIVE.md)
+**Development History**: View complete timeline in git: `git log --since="2026-01-11" --oneline`
 
 **Contributing**: Maintenance mode. TDD methodology, maintain 74%+ coverage, follow existing patterns.
