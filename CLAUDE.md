@@ -16,8 +16,8 @@ YouTube transcript fetching SaaS with Web UI and CLI. Intelligent proxy support 
 | **Core Implementation** | ✅ Complete | All features working |
 | **Proxy Integration** | ✅ Complete | WebShare rotating proxies |
 | **Web UI** | ✅ Working | Auto-proxy detection |
-| **CLI** | ✅ Working | Clean output (bug fixed) |
-| **Tests** | ✅ 286 passing | 74% coverage |
+| **CLI** | ✅ Working | --version flag fixed, clean output |
+| **Tests** | ✅ 280 passing | 74% coverage |
 | **Deployment** | ✅ Render | Auto-deploys from main |
 
 ## Architecture
@@ -90,7 +90,7 @@ except Exception as e:
 
 **Impact**: CLI now shows clean output on success. Error handling preserved for actual failures.
 
-### ✅ Fixed CLI --version Flag (Commit XXXXX)
+### ✅ Fixed CLI --version Flag (Commit f47f047)
 **Issue**: `ytt --version` showed "Missing command" error despite being listed in help.
 
 **Root Cause**: Missing `is_eager=True` parameter in version option callback. Typer was validating commands before processing the version flag.
@@ -165,7 +165,7 @@ pytest
 | Cached Response | p95 < 500ms | 🟡 Pending Redis |
 | Uncached Response | p95 < 10s | ✅ Met |
 | URL Parse Success | > 99.5% | ✅ Met |
-| Test Coverage | > 80% | ✅ 74% (286 tests) |
+| Test Coverage | > 80% | ✅ 74% (280 tests) |
 
 ## Roadmap
 
@@ -177,6 +177,7 @@ pytest
 - [x] Environment-based configuration
 - [x] Deploy to Render
 - [x] **Fix CLI error handling bug**
+- [x] **Fix --version flag (is_eager callback)**
 
 ### In Progress 🚧
 - [ ] Redis caching (reduce API calls by 80%+)
