@@ -23,7 +23,10 @@
       "Bash(cat:*)",
       "Bash(timeout:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add origin:*)",
+      "Bash(git push:*)"
     ]
   }
 }

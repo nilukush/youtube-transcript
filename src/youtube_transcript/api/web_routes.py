@@ -77,13 +77,9 @@ async def get_transcript_web(
     session_gen = get_session()
     session = next(session_gen)
 
-    # Load proxy configuration (proxy index 6 works for more videos!)
-    from youtube_transcript.config import setup_proxy_from_file
-    proxy_config = setup_proxy_from_file("proxies.txt", proxy_index=6)
-
+    # Create orchestrator (proxy auto-configured from environment variables)
     orchestrator = TranscriptOrchestrator(
-        session=session,
-        proxy_config=proxy_config
+        session=session
     )
 
     # Parse languages
@@ -155,13 +151,9 @@ async def get_transcript_by_id_web(
     session_gen = get_session()
     session = next(session_gen)
 
-    # Load proxy configuration (proxy index 6 works for more videos!)
-    from youtube_transcript.config import setup_proxy_from_file
-    proxy_config = setup_proxy_from_file("proxies.txt", proxy_index=6)
-
+    # Create orchestrator (proxy auto-configured from environment variables)
     orchestrator = TranscriptOrchestrator(
-        session=session,
-        proxy_config=proxy_config
+        session=session
     )
 
     # Parse languages
@@ -251,13 +243,9 @@ async def get_transcript_htmx(
     session_gen = get_session()
     session = next(session_gen)
 
-    # Load proxy configuration (proxy index 6 works for more videos!)
-    from youtube_transcript.config import setup_proxy_from_file
-    proxy_config = setup_proxy_from_file("proxies.txt", proxy_index=6)
-
+    # Create orchestrator (proxy auto-configured from environment variables)
     orchestrator = TranscriptOrchestrator(
-        session=session,
-        proxy_config=proxy_config
+        session=session
     )
 
     # Parse languages
