@@ -69,7 +69,7 @@ def fetch_transcript(
         None,
         "--lang",
         "-l",
-        help="Preferred language codes (comma-separated, e.g., 'en,es')",
+        help="Preferred language codes in priority order (comma-separated). Returns the first available transcript. Example: 'en,es,fr' tries English first, then Spanish, then French.",
     ),
     output: Optional[str] = typer.Option(
         None,
