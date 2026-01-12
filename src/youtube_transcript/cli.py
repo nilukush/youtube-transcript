@@ -176,8 +176,11 @@ def fetch_transcript(
             else:
                 typer.echo(output_text)
 
-        raise typer.Exit(code=0)
+        return
 
+    except typer.Exit:
+        # Re-raise typer.Exit to allow proper exit
+        raise
     except Exception as e:
         console.print(f"[red]Error:[/red] {str(e)}")
         if verbose:
