@@ -25,18 +25,37 @@ console = Console()
 __version__ = "0.1.0"
 
 
+def version_callback(value: bool) -> None:
+    """Handle --version flag.
+
+    Prints version and exits if --version flag is provided.
+    Uses is_eager=True to process before command validation.
+
+    Args:
+        value: True if --version flag was provided
+    """
+    if value:
+        typer.echo(f"ytt version {__version__}")
+        raise typer.Exit()
+
+
 @app.callback()
 def main(
-    version: bool = typer.Option(False, "--version", "-v", help="Show version and exit"),
+    version: bool = typer.Option(
+        None,
+        "--version",
+        "-v",
+        callback=version_callback,
+        is_eager=True,
+        help="Show version and exit",
+    ),
 ):
     """YouTube Transcript Fetcher CLI.
 
     Fetch transcripts from any YouTube video with support for multiple languages,
     output formats, and file export options.
     """
-    if version:
-        typer.echo(f"ytt version {__version__}")
-        raise typer.Exit()
+    pass  # Version logic handled in callback
 
 
 @app.command("fetch")

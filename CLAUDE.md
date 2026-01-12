@@ -90,6 +90,45 @@ except Exception as e:
 
 **Impact**: CLI now shows clean output on success. Error handling preserved for actual failures.
 
+### ✅ Fixed CLI --version Flag (Commit XXXXX)
+**Issue**: `ytt --version` showed "Missing command" error despite being listed in help.
+
+**Root Cause**: Missing `is_eager=True` parameter in version option callback. Typer was validating commands before processing the version flag.
+
+**Fix**:
+```python
+# Before (Lines 28-39)
+@app.callback()
+def main(
+    version: bool = typer.Option(False, "--version", "-v", help="Show version and exit"),
+):
+    if version:
+        typer.echo(f"ytt version {__version__}")
+        raise typer.Exit()
+
+# After (Lines 28-58)
+def version_callback(value: bool) -> None:
+    """Handle --version flag."""
+    if value:
+        typer.echo(f"ytt version {__version__}")
+        raise typer.Exit()
+
+@app.callback()
+def main(
+    version: bool = typer.Option(
+        None,
+        "--version",
+        "-v",
+        callback=version_callback,
+        is_eager=True,  # Process before command validation
+        help="Show version and exit",
+    ),
+):
+    pass  # Version logic moved to callback
+```
+
+**Impact**: `ytt --version` and `ytt -v` now work correctly without "Missing command" error. Follows Typer best practices with eager callback pattern.
+
 ## Local Development
 
 ```bash
@@ -156,6 +195,7 @@ pytest
 | Issue | Solution |
 |-------|----------|
 | "No such command" | Use `ytt fetch` not `ytt` |
+| "Missing command" with --version | **Fixed** - `ytt --version` now works correctly |
 | "Transcript not found" | Video has no captions or proxy blocked |
 | Rate limiting (HTTP 429) | Ensure env vars set in production |
 | Cold starts (30s delay) | Free tier sleeps - upgrade to Starter tier |
@@ -176,7 +216,7 @@ youtube-transcript/
 │   ├── templates/        # Jinja2 HTML templates
 │   ├── utils/            # URL parsing utilities
 │   └── cli.py            # CLI entry point (Typer)
-├── tests/                # 286 tests, 74% coverage
+├── tests/                # 280 tests, 74% coverage
 ├── DEPLOYMENT.md         # Deployment guide (app owners)
 ├── README.md             # User documentation
 ├── CLAUDE.md             # This file

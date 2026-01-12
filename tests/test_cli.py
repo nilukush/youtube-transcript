@@ -49,6 +49,26 @@ class TestCLIBasicCommands:
         assert result.exit_code == 0
         assert "version" in result.stdout.lower() or "0.1" in result.stdout
 
+    def test_cli_version_flag_works(self):
+        """Test that --version flag works without requiring a command."""
+        from youtube_transcript.cli import app
+        runner = CliRunner()
+        result = runner.invoke(app, ["--version"])
+        # Should show version and exit cleanly without "Missing command" error
+        assert result.exit_code == 0
+        assert "version" in result.stdout.lower() or "0.1" in result.stdout
+        assert "Missing command" not in result.stdout
+
+    def test_cli_version_short_flag_works(self):
+        """Test that -v short flag works without requiring a command."""
+        from youtube_transcript.cli import app
+        runner = CliRunner()
+        result = runner.invoke(app, ["-v"])
+        # Should show version and exit cleanly
+        assert result.exit_code == 0
+        assert "version" in result.stdout.lower() or "0.1" in result.stdout
+        assert "Missing command" not in result.stdout
+
 
 class TestCLITranscriptFetch:
     """Test transcript fetching via CLI."""
