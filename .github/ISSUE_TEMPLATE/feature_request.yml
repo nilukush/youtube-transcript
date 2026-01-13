@@ -1,0 +1,112 @@
+name: Feature request
+description: Suggest an idea or enhancement
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Please provide as much detail as possible.
+
+        **Note**: This project is in maintenance mode. Core features are complete, but we welcome:
+        - Bug fixes
+        - Performance improvements
+        - Documentation enhancements
+        - Minor quality-of-life improvements
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: Is your feature request related to a problem? Please describe
+      placeholder: |
+        I'm trying to [do something] but [problem] prevents me.
+        It would be helpful if [feature description].
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What would you like to see implemented?
+      placeholder: |
+        Add support for [feature] by [implementation approach].
+        This would allow users to [benefit].
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Have you considered any alternative solutions?
+      placeholder: |
+        I've considered:
+        - [Alternative 1]
+        - [Alternative 2]
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: Use cases
+      description: Describe specific use cases for this feature
+      placeholder: |
+        1. When I [scenario], I need [feature]
+        2. As a [user type], I want [feature] so that [benefit]
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you?
+      options:
+        - Nice to have
+        - Important
+        - Critical
+      default: 0
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which area would this feature affect?
+      options:
+        - CLI
+        - Web UI
+        - API
+        - Performance
+        - Documentation
+        - Testing
+        - Other
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation details (optional)
+      description: Do you have ideas on how this could be implemented?
+      placeholder: |
+        - Could use [library/approach]
+        - Might need changes to [component]
+        - Example from another project: [link]
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples (optional)
+      description: Are there similar features in other projects?
+      placeholder: |
+        - [Project name] has [similar feature]
+        - Reference: [link]
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Before submitting
+      options:
+        - label: I have searched existing issues and feature requests
+          required: true
+        - label: This feature would benefit multiple users (not just me)
+          required: true
+        - label: I'm willing to help implement this feature (optional)

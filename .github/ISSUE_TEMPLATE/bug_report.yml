@@ -1,0 +1,116 @@
+name: Bug report
+description: Report a problem or unexpected behavior
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Please provide as much detail as possible.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is
+      placeholder: |
+        When I try to fetch a transcript from [video URL], I get an error message.
+        I expected to see the transcript, but instead I saw [error message].
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What you expected to happen
+      placeholder: The transcript should be fetched and displayed
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened
+      placeholder: Error message: "Transcript not found"
+    validations:
+      required: true
+
+  - type: input
+    id: video-url
+    attributes:
+      label: Video URL or ID
+      description: The YouTube video URL or ID that causes the issue
+      placeholder: https://youtu.be/dQw4w9WgXcQ or dQw4w9WgXcQ
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which part of the application is affected?
+      options:
+        - CLI
+        - Web UI
+        - API
+        - Fetcher
+        - Cache
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Error messages
+      description: Paste any relevant logs or error messages
+      render: shell
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Environment information
+      placeholder: |
+        - OS: [e.g. macOS 14.0, Ubuntu 22.04, Windows 11]
+        - Python version: [e.g. 3.10.0, 3.11.2]
+        - Installation method: [pip, git clone, Docker]
+        - Using proxy: [yes/no]
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Any other context about the problem
+      placeholder: |
+        - Is this happening consistently or intermittently?
+        - When did this start happening?
+        - Did anything change recently?
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Before submitting, please confirm
+      options:
+        - label: I have searched existing issues for similar problems
+          required: true
+        - label: I have provided a minimal reproducible example
+          required: true
+        - label: I have included all relevant information (environment, logs, etc.)
+          required: true

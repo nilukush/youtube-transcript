@@ -8,7 +8,8 @@
 |----------|----------|---------|
 | **Users** | [README.md](README.md) | Features, installation, usage examples |
 | **Operators** | [DEPLOYMENT.md](DEPLOYMENT.md) | Deployment, configuration, monitoring |
-| **Contributors** | [CLAUDE.md](CLAUDE.md) | This file - architecture reference |
+| **Contributors** | [CONTRIBUTING.md](CONTRIBUTING.md) | Development setup, PR workflow, code standards |
+| **Architecture** | [CLAUDE.md](CLAUDE.md) | This file - architecture & design decisions |
 
 ---
 
@@ -133,7 +134,9 @@ youtube-transcript/
 ├── tests/                # 280 tests, 74% coverage
 ├── DEPLOYMENT.md         # Deployment guide (app owners)
 ├── README.md             # User documentation
-├── CLAUDE.md             # This file (contributor reference)
+├── CONTRIBUTING.md       # Contribution guidelines (dev setup, PR workflow)
+├── CLAUDE.md             # This file (architecture & design decisions)
+├── LICENSE               # MIT License
 └── pyproject.toml        # Project configuration
 ```
 
@@ -153,6 +156,7 @@ youtube-transcript/
 ## Recent Updates
 
 ### January 2026
+- **OSS infrastructure** (Jan 13): Added LICENSE, CONTRIBUTING.md, issue/PR templates, SECURITY.md
 - **Repository cleanup** (Jan 12): Removed development history archive, rely on git history
 - **Documentation streamlining** (Jan 12): Compacted CLAUDE.md, removed redundancy
 - **CLI --version flag fixed** (Commit f47f047): `is_eager=True` callback
@@ -176,6 +180,7 @@ youtube-transcript/
 - [x] Fix CLI error handling bug
 - [x] Fix --version flag
 - [x] Documentation streamlining and repository cleanup
+- [x] Open-source infrastructure (LICENSE, CONTRIBUTING.md, templates)
 
 ### In Progress 🚧
 - [ ] Redis caching (reduce API calls by 80%+)
