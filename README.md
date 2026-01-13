@@ -10,6 +10,7 @@ A powerful tool to fetch YouTube video transcripts via **Web UI** or **CLI**, wi
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](tests/)
 [![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![PyPI version](https://img.shields.io/pypi/v/youtube-transcript-tools)](https://pypi.org/project/youtube-transcript-tools/)
 
 ## Features
 
@@ -37,7 +38,10 @@ Perfect for: Quick transcripts, testing, non-technical users
 Fetch transcripts from the command line:
 
 ```bash
-# Install from source
+# Install from PyPI (Recommended)
+pip install youtube-transcript-tools
+
+# Or install from source
 git clone https://github.com/nilukush/youtube-transcript.git
 cd youtube-transcript
 pip install -e .
@@ -45,8 +49,6 @@ pip install -e .
 # Fetch transcript
 ytt fetch "https://youtu.be/dQw4w9WgXcQ"
 ```
-
-*Coming soon to PyPI: `pip install youtube-transcript-tools`*
 
 Perfect for: Automation, scripting, power users
 
@@ -82,7 +84,7 @@ ytt fetch dQw4w9WgXcQ --json
 
 ## Installation
 
-### From PyPI (Coming Soon)
+### From PyPI (Recommended)
 
 ```bash
 pip install youtube-transcript-tools

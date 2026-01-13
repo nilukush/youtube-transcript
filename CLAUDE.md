@@ -156,6 +156,7 @@ youtube-transcript/
 ## Recent Updates
 
 ### January 2026
+- **PyPI publishing** (Jan 13): Published to PyPI as `youtube-transcript-tools` v0.1.0
 - **Documentation restructuring** (Jan 13): Added "Try it Now" sections to README.md and DEPLOYMENT.md
 - **OSS infrastructure** (Jan 13): Added LICENSE, CONTRIBUTING.md, issue/PR templates, SECURITY.md
 - **Repository cleanup** (Jan 12): Removed development history archive, rely on git history
@@ -182,6 +183,7 @@ youtube-transcript/
 - [x] Fix --version flag
 - [x] Documentation streamlining and repository cleanup
 - [x] Open-source infrastructure (LICENSE, CONTRIBUTING.md, templates)
+- [x] Publish CLI to PyPI (v0.1.0)
 
 ### In Progress 🚧
 - [ ] Redis caching (reduce API calls by 80%+)
@@ -190,7 +192,6 @@ youtube-transcript/
 
 ### Future 🔮
 - [ ] Proxy rotation/fallback
-- [ ] Publish CLI to PyPI
 - [ ] Authentication/API keys
 - [ ] PostgreSQL migration
 - [ ] Upgrade to paid Render tier

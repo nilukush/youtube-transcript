@@ -10,11 +10,11 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
-    { name = "Your Name", email = "your.email@example.com" }
+    { name = "Nilesh Kumar", email = "nilukush@gmail.com" }
 ]
 keywords = ["youtube", "transcript", "cli", "api", "fastapi"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Intended Audience :: End Users/Desktop",
     "License :: OSI Approved :: MIT License",
@@ -58,10 +58,10 @@ dev = [
 ytt = "youtube_transcript.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/youtube-transcript"
-Documentation = "https://github.com/yourusername/youtube-transcript#readme"
-Repository = "https://github.com/yourusername/youtube-transcript.git"
-Issues = "https://github.com/yourusername/youtube-transcript/issues"
+Homepage = "https://github.com/nilukush/youtube-transcript"
+Documentation = "https://github.com/nilukush/youtube-transcript#readme"
+Repository = "https://github.com/nilukush/youtube-transcript.git"
+Issues = "https://github.com/nilukush/youtube-transcript/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/youtube_transcript"]
