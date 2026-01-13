@@ -215,7 +215,6 @@ youtube-transcript/
 │   ├── utils/            # URL parsing utilities
 │   └── cli.py            # CLI entry point
 ├── tests/                # Pytest tests
-├── docs/                 # Documentation
 └── pyproject.toml        # Project configuration
 ```
 
@@ -270,5 +269,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## Support
 
 - **Issues**: [GitHub Issues](https://github.com/nilukush/youtube-transcript/issues)
-- **Documentation**: [docs/](docs/)
 - **Deployment Guide**: [DEPLOYMENT.md](DEPLOYMENT.md)
