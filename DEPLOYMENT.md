@@ -1,5 +1,19 @@
 # Deployment Guide
 
+## 🚀 Try it First!
+
+**Before deploying**, experience the live demo: https://youtube-transcript-zb5k.onrender.com
+
+Try the service in action to understand what you're deploying. See how it handles:
+- YouTube URL parsing (100+ formats supported)
+- Transcript fetching with language selection
+- JSON and plain text output formats
+- Smart proxy support for bypassing rate limits
+
+---
+
+## For Application Owners
+
 This guide is for application owners who want to deploy the YouTube Transcript Fetcher as a production service.
 
 ## Architecture Overview

@@ -1,6 +1,11 @@
 # YouTube Transcript Fetcher
 
-A powerful tool to fetch YouTube video transcripts via Web UI and CLI, with intelligent proxy support to bypass rate limiting.
+🚀 **[Try Live Demo](https://youtube-transcript-zb5k.onrender.com/)** |
+⭐ [Star on GitHub](https://github.com/nilukush/youtube-transcript) |
+💻 [CLI Guide](#cli) |
+📖 [Docs](#documentation)
+
+A powerful tool to fetch YouTube video transcripts via **Web UI** or **CLI**, with intelligent proxy support to bypass rate limiting.
 
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](tests/)
 [![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
@@ -15,21 +20,49 @@ A powerful tool to fetch YouTube video transcripts via Web UI and CLI, with inte
 - **Multiple Formats**: Output as plain text or JSON
 - **Smart Caching**: Database-backed caching to avoid redundant API calls
 
-## Quick Start
+## Quick Start 🚀
 
-### Web UI (Easiest)
+### Option 1: Web UI (Easiest - No Installation) 🌐
 
-1. Start the server:
+🚀 **[Try Live Demo](https://youtube-transcript-zb5k.onrender.com/)**
+
+*Works instantly in your browser - no installation required!*
+
+Perfect for: Quick transcripts, testing, non-technical users
+
+---
+
+### Option 2: CLI (Install Locally) 💻
+
+Fetch transcripts from the command line:
+
 ```bash
-pip install youtube-transcript-tools
-uvicorn youtube_transcript.api.app:create_app --host localhost --port 8888
+# Install from source
+git clone https://github.com/nilukush/youtube-transcript.git
+cd youtube-transcript
+pip install -e .
+
+# Fetch transcript
+ytt fetch "https://youtu.be/dQw4w9WgXcQ"
 ```
 
-2. Open your browser: `http://localhost:8888`
+*Coming soon to PyPI: `pip install youtube-transcript-tools`*
 
-3. Enter any YouTube URL and get the transcript!
+Perfect for: Automation, scripting, power users
 
-That's it! No configuration needed.
+---
+
+### Option 3: Self-Hosted (Deploy Yourself) 🔧
+
+Deploy your own instance:
+
+📖 **[Deployment Guide](DEPLOYMENT.md)**
+
+Perfect for: Production use, custom configuration, full control
+
+---
+
+## Features
 
 ### CLI
 

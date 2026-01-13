@@ -156,6 +156,7 @@ youtube-transcript/
 ## Recent Updates
 
 ### January 2026
+- **Documentation restructuring** (Jan 13): Added "Try it Now" sections to README.md and DEPLOYMENT.md
 - **OSS infrastructure** (Jan 13): Added LICENSE, CONTRIBUTING.md, issue/PR templates, SECURITY.md
 - **Repository cleanup** (Jan 12): Removed development history archive, rely on git history
 - **Documentation streamlining** (Jan 12): Compacted CLAUDE.md, removed redundancy
