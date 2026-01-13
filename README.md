@@ -2,8 +2,7 @@
 
 🚀 **[Try Live Demo](https://youtube-transcript-zb5k.onrender.com/)** |
 ⭐ [Star on GitHub](https://github.com/nilukush/youtube-transcript) |
-💻 [CLI Guide](#cli) |
-📖 [Docs](#documentation)
+💻 [CLI Guide](#cli)
 
 A powerful tool to fetch YouTube video transcripts via **Web UI** or **CLI**, with intelligent proxy support to bypass rate limiting.
 
