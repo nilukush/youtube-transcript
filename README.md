@@ -26,6 +26,8 @@ A powerful tool to fetch YouTube video transcripts via **Web UI** or **CLI**, wi
 
 🚀 **[Try Live Demo](https://youtube-transcript-zb5k.onrender.com/)**
 
+![Web UI Demo](docs/images/webui-demo.webp)
+
 *Works instantly in your browser - no installation required!*
 
 Perfect for: Quick transcripts, testing, non-technical users
