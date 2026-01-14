@@ -85,7 +85,22 @@ ytt fetch dQw4w9WgXcQ --json
 
 ## Installation
 
-### Option 1: pipx (Recommended for macOS/Linux) ⭐
+### Option 1: Homebrew (macOS/Linux) ⭐
+
+```bash
+brew tap nilukush/ytt
+brew install youtube-transcript-tools
+```
+
+**Why Homebrew?**
+- ✅ Single command installation
+- ✅ Automatic dependency management
+- ✅ Easy updates: `brew upgrade youtube-transcript-tools`
+- ✅ Native macOS package manager
+
+---
+
+### Option 2: pipx (Isolated Environment)
 
 **pipx** installs Python CLI tools in isolated environments, avoiding PEP 668 "externally-managed-environment" errors on macOS.
 
@@ -106,7 +121,7 @@ pipx install youtube-transcript-tools
 
 ---
 
-### Option 2: pip (Virtual Environment)
+### Option 3: pip (Virtual Environment)
 
 ```bash
 # Create virtual environment
@@ -119,17 +134,17 @@ pip install youtube-transcript-tools
 
 ---
 
-### Option 3: pip (System-wide)
+### Option 4: pip (System-wide)
 
 ```bash
 pip install youtube-transcript-tools
 ```
 
-**Note**: If you see `error: externally-managed-environment`, use Option 1 (pipx) or Option 2 (virtual environment).
+**Note**: If you see `error: externally-managed-environment`, use Option 1 (Homebrew), Option 2 (pipx), or Option 3 (virtual environment).
 
 ---
 
-### Option 4: From Source
+### Option 5: From Source
 
 ```bash
 git clone https://github.com/nilukush/youtube-transcript.git
