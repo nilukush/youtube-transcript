@@ -36,18 +36,10 @@ Perfect for: Quick transcripts, testing, non-technical users
 
 ### Option 2: CLI (Install Locally) 💻
 
-Fetch transcripts from the command line:
+Fetch transcripts from the command line. **See [Installation](#installation) below** for all installation methods.
 
 ```bash
-# Install from PyPI (Recommended)
-pip install youtube-transcript-tools
-
-# Or install from source
-git clone https://github.com/nilukush/youtube-transcript.git
-cd youtube-transcript
-pip install -e .
-
-# Fetch transcript
+# Example: Fetch transcript by URL
 ytt fetch "https://youtu.be/dQw4w9WgXcQ"
 ```
 
@@ -64,24 +56,6 @@ Deploy your own instance:
 Perfect for: Production use, custom configuration, full control
 
 ---
-
-## Features
-
-### CLI
-
-```bash
-# Fetch transcript by URL
-ytt fetch "https://youtu.be/dQw4w9WgXcQ"
-
-# Fetch by video ID
-ytt fetch dQw4w9WgXcQ
-
-# Save to file
-ytt fetch dQw4w9WgXcQ -o transcript.txt
-
-# Output as JSON
-ytt fetch dQw4w9WgXcQ --json
-```
 
 ## Installation
 
@@ -180,9 +154,24 @@ Then open `http://localhost:8888` in your browser.
 
 The CLI uses a `fetch` command to retrieve transcripts.
 
+**Quick examples:**
+```bash
+# Fetch by URL
+ytt fetch "https://youtu.be/dQw4w9WgXcQ"
+
+# Fetch by video ID
+ytt fetch dQw4w9WgXcQ
+
+# Save to file
+ytt fetch dQw4w9WgXcQ -o transcript.txt
+
+# Output as JSON
+ytt fetch dQw4w9WgXcQ --json
+```
+
 **Basic usage:**
 ```bash
-ytt fetch "https://youtu.be/dQw4w4wWgXcQ"
+ytt fetch "https://youtu.be/dQw4w9WgXcQ"
 ```
 
 **Advanced options:**
