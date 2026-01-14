@@ -156,6 +156,8 @@ youtube-transcript/
 ## Recent Updates
 
 ### January 2026
+- **Homebrew formula fixed** (Jan 14): Fixed symlink conflicts - only `ytt` binary is linked, no conflicts with system Python
+- **Homebrew tap published** (Jan 14): `brew tap nilukush/ytt` for macOS users
 - **PyPI publishing** (Jan 13): Published to PyPI as `youtube-transcript-tools` v0.1.0
 - **Documentation restructuring** (Jan 13): Added "Try it Now" sections to README.md and DEPLOYMENT.md
 - **OSS infrastructure** (Jan 13): Added LICENSE, CONTRIBUTING.md, issue/PR templates, SECURITY.md
@@ -184,6 +186,7 @@ youtube-transcript/
 - [x] Documentation streamlining and repository cleanup
 - [x] Open-source infrastructure (LICENSE, CONTRIBUTING.md, templates)
 - [x] Publish CLI to PyPI (v0.1.0)
+- [x] Homebrew tap and formula (nilukush/ytt)
 
 ### In Progress 🚧
 - [ ] Redis caching (reduce API calls by 80%+)
@@ -227,6 +230,13 @@ pytest
 
 **CLI Commands**:
 ```bash
+# Install via Homebrew (macOS)
+brew tap nilukush/ytt && brew install youtube-transcript-tools
+
+# Install via pip
+pip install youtube-transcript-tools
+
+# Fetch transcripts
 ytt fetch "https://youtu.be/dQw4w9WgXcQ"  # Basic fetch
 ytt fetch dQw4w9WgXcQ --lang en           # Language preference
 ytt fetch dQw4w9WgXcQ -o file.txt         # Save to file
