@@ -85,13 +85,51 @@ ytt fetch dQw4w9WgXcQ --json
 
 ## Installation
 
-### From PyPI (Recommended)
+### Option 1: pipx (Recommended for macOS/Linux) ⭐
+
+**pipx** installs Python CLI tools in isolated environments, avoiding PEP 668 "externally-managed-environment" errors on macOS.
+
+```bash
+# Install pipx (one-time setup)
+brew install pipx
+pipx ensurepath
+
+# Install ytt
+pipx install youtube-transcript-tools
+```
+
+**Why pipx?**
+- ✅ No system Python conflicts
+- ✅ PEP 668 compliant
+- ✅ Easy updates: `pipx upgrade ytt`
+- ✅ Isolated from other tools
+
+---
+
+### Option 2: pip (Virtual Environment)
+
+```bash
+# Create virtual environment
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install
+pip install youtube-transcript-tools
+```
+
+---
+
+### Option 3: pip (System-wide)
 
 ```bash
 pip install youtube-transcript-tools
 ```
 
-### From Source
+**Note**: If you see `error: externally-managed-environment`, use Option 1 (pipx) or Option 2 (virtual environment).
+
+---
+
+### Option 4: From Source
 
 ```bash
 git clone https://github.com/nilukush/youtube-transcript.git
